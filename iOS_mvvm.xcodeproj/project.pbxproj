@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5DDE8F26CB17B500F9152C /* StoresTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */; };
 		0A696A1426CAFB6000A52457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1326CAFB6000A52457 /* AppDelegate.swift */; };
 		0A696A1626CAFB6000A52457 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1526CAFB6000A52457 /* SceneDelegate.swift */; };
 		0A696A1826CAFB6000A52457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1726CAFB6000A52457 /* ViewController.swift */; };
@@ -14,10 +15,18 @@
 		0A696A1E26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1C26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld */; };
 		0A696A2026CAFB6100A52457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A696A1F26CAFB6100A52457 /* Assets.xcassets */; };
 		0A696A2326CAFB6100A52457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A696A2126CAFB6100A52457 /* LaunchScreen.storyboard */; };
+		0A696A2D26CB007C00A52457 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A2C26CB007C00A52457 /* Api.swift */; };
+		0A696A2F26CB00B800A52457 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A2E26CB00B800A52457 /* ApiResponse.swift */; };
+		0A696A3226CB064100A52457 /* ShopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A3126CB064100A52457 /* ShopsModel.swift */; };
+		0A696A3526CB0A1800A52457 /* StoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A3426CB0A1800A52457 /* StoresViewModel.swift */; };
+		0A696A3926CB149600A52457 /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A3726CB149600A52457 /* VStoreCell.swift */; };
+		0A696A3A26CB149600A52457 /* VStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A696A3826CB149600A52457 /* VStoreCell.xib */; };
+		0A696A3D26CB161700A52457 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A3C26CB161700A52457 /* SwiftExtensions.swift */; };
 		2A8B0F062627D0845C5E976B /* Pods_iOS_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresTableview.swift; sourceTree = "<group>"; };
 		0A696A1026CAFB6000A52457 /* iOS_mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_mvvm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A696A1326CAFB6000A52457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A696A1526CAFB6000A52457 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +36,13 @@
 		0A696A1F26CAFB6100A52457 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A696A2226CAFB6100A52457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A696A2426CAFB6100A52457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A696A2C26CB007C00A52457 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		0A696A2E26CB00B800A52457 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		0A696A3126CB064100A52457 /* ShopsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsModel.swift; sourceTree = "<group>"; };
+		0A696A3426CB0A1800A52457 /* StoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewModel.swift; sourceTree = "<group>"; };
+		0A696A3726CB149600A52457 /* VStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
+		0A696A3826CB149600A52457 /* VStoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VStoreCell.xib; sourceTree = "<group>"; };
+		0A696A3C26CB161700A52457 /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		85EB142CBC742FAF98AB547C /* Pods-iOS_mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.debug.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAA9FB79D2D2370E6A1692B /* Pods-iOS_mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.release.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +81,11 @@
 		0A696A1226CAFB6000A52457 /* iOS_mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				0A696A3B26CB160200A52457 /* Utils */,
+				0A696A3626CB146300A52457 /* CustomCells */,
+				0A696A3326CB0A0A00A52457 /* ViewModels */,
+				0A696A3026CB063500A52457 /* Models */,
+				0A696A2B26CB006E00A52457 /* NetworkStuff */,
 				0A696A1326CAFB6000A52457 /* AppDelegate.swift */,
 				0A696A1526CAFB6000A52457 /* SceneDelegate.swift */,
 				0A696A1726CAFB6000A52457 /* ViewController.swift */,
@@ -73,8 +94,51 @@
 				0A696A2126CAFB6100A52457 /* LaunchScreen.storyboard */,
 				0A696A2426CAFB6100A52457 /* Info.plist */,
 				0A696A1C26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld */,
+				0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */,
 			);
 			path = iOS_mvvm;
+			sourceTree = "<group>";
+		};
+		0A696A2B26CB006E00A52457 /* NetworkStuff */ = {
+			isa = PBXGroup;
+			children = (
+				0A696A2C26CB007C00A52457 /* Api.swift */,
+				0A696A2E26CB00B800A52457 /* ApiResponse.swift */,
+			);
+			path = NetworkStuff;
+			sourceTree = "<group>";
+		};
+		0A696A3026CB063500A52457 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A696A3126CB064100A52457 /* ShopsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0A696A3326CB0A0A00A52457 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0A696A3426CB0A1800A52457 /* StoresViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0A696A3626CB146300A52457 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				0A696A3726CB149600A52457 /* VStoreCell.swift */,
+				0A696A3826CB149600A52457 /* VStoreCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		0A696A3B26CB160200A52457 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0A696A3C26CB161700A52457 /* SwiftExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		1AB6D5E759AFD438100A7B00 /* Frameworks */ = {
@@ -91,7 +155,6 @@
 				85EB142CBC742FAF98AB547C /* Pods-iOS_mvvm.debug.xcconfig */,
 				DAAA9FB79D2D2370E6A1692B /* Pods-iOS_mvvm.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,6 +169,7 @@
 				0A696A0C26CAFB6000A52457 /* Sources */,
 				0A696A0D26CAFB6000A52457 /* Frameworks */,
 				0A696A0E26CAFB6000A52457 /* Resources */,
+				1691416D7781ECAC7468C720 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +219,7 @@
 			files = (
 				0A696A2326CAFB6100A52457 /* LaunchScreen.storyboard in Resources */,
 				0A696A2026CAFB6100A52457 /* Assets.xcassets in Resources */,
+				0A696A3A26CB149600A52457 /* VStoreCell.xib in Resources */,
 				0A696A1B26CAFB6000A52457 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +227,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1691416D7781ECAC7468C720 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A0144ED5C78A59567117A931 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,6 +276,13 @@
 				0A696A1826CAFB6000A52457 /* ViewController.swift in Sources */,
 				0A696A1E26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld in Sources */,
 				0A696A1426CAFB6000A52457 /* AppDelegate.swift in Sources */,
+				0A5DDE8F26CB17B500F9152C /* StoresTableview.swift in Sources */,
+				0A696A2D26CB007C00A52457 /* Api.swift in Sources */,
+				0A696A3526CB0A1800A52457 /* StoresViewModel.swift in Sources */,
+				0A696A2F26CB00B800A52457 /* ApiResponse.swift in Sources */,
+				0A696A3926CB149600A52457 /* VStoreCell.swift in Sources */,
+				0A696A3D26CB161700A52457 /* SwiftExtensions.swift in Sources */,
+				0A696A3226CB064100A52457 /* ShopsModel.swift in Sources */,
 				0A696A1626CAFB6000A52457 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
