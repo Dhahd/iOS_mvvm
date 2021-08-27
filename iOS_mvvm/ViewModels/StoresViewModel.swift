@@ -12,7 +12,7 @@ class StoreViewModel: NSObject {
 	
 	var bindStoresViewModelToController : (() -> ()) = {}
 	
-	private(set) var stores : ShopsModel! {
+	private(set) var stores : [Item?]! {
 		didSet {
 			self.bindStoresViewModelToController()
 		}
@@ -28,7 +28,8 @@ class StoreViewModel: NSObject {
 		api.getStores { stores in
 			switch stores {
 				case .success(model: let model):
-					self.stores = model
+					print("success \(String(describing: model))")
+					self.stores = model?.items
 				case .failure(let error):
 					print("error \(error)")
 				case .null:

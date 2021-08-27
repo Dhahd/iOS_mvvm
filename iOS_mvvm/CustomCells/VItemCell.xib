@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="Vstore" selectionStyle="default" indentationWidth="10" reuseIdentifier="Vstore" rowHeight="135" id="KGk-i7-Jjw" customClass="VStoreCell" customModule="iOS_mvvm" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="Vstore" selectionStyle="default" indentationWidth="10" reuseIdentifier="Vstore" rowHeight="135" id="KGk-i7-Jjw" customClass="VItemCell" customModule="iOS_mvvm" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="423" height="135"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -18,22 +18,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6W-2v-yGb">
-                        <rect key="frame" x="2" y="2" width="419" height="131"/>
+                        <rect key="frame" x="3" y="3" width="417" height="129"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nx-uA-Trr">
-                                <rect key="frame" x="138" y="15" width="276" height="21"/>
+                                <rect key="frame" x="133" y="15" width="279" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OLF-x6-TzK">
-                                <rect key="frame" x="5" y="5" width="128" height="121"/>
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="129"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="nfS-JV-ywf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-AY-mKr">
-                                <rect key="frame" x="138" y="41" width="276" height="38.5"/>
+                                <rect key="frame" x="133" y="41" width="279" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -44,24 +44,26 @@
                             <constraint firstItem="3nx-uA-Trr" firstAttribute="leading" secondItem="OLF-x6-TzK" secondAttribute="trailing" constant="5" id="0tQ-gv-wCE"/>
                             <constraint firstItem="vie-AY-mKr" firstAttribute="top" secondItem="3nx-uA-Trr" secondAttribute="bottom" constant="5" id="9ho-zF-9Lx"/>
                             <constraint firstAttribute="trailing" secondItem="vie-AY-mKr" secondAttribute="trailing" constant="5" id="Ggg-6A-Cgh"/>
-                            <constraint firstItem="OLF-x6-TzK" firstAttribute="top" secondItem="W6W-2v-yGb" secondAttribute="top" constant="5" id="Iab-p5-4ha"/>
+                            <constraint firstItem="OLF-x6-TzK" firstAttribute="top" secondItem="W6W-2v-yGb" secondAttribute="top" id="Iab-p5-4ha"/>
                             <constraint firstItem="vie-AY-mKr" firstAttribute="leading" secondItem="OLF-x6-TzK" secondAttribute="trailing" constant="5" id="JYA-9e-fXF"/>
                             <constraint firstAttribute="trailing" secondItem="3nx-uA-Trr" secondAttribute="trailing" constant="5" id="RvR-N7-7O2"/>
-                            <constraint firstItem="OLF-x6-TzK" firstAttribute="leading" secondItem="W6W-2v-yGb" secondAttribute="leading" constant="5" id="Scd-cO-5A0"/>
-                            <constraint firstAttribute="bottom" secondItem="OLF-x6-TzK" secondAttribute="bottom" constant="5" id="at9-E4-8Oe"/>
+                            <constraint firstItem="OLF-x6-TzK" firstAttribute="leading" secondItem="W6W-2v-yGb" secondAttribute="leading" id="Scd-cO-5A0"/>
+                            <constraint firstAttribute="bottom" secondItem="OLF-x6-TzK" secondAttribute="bottom" id="at9-E4-8Oe"/>
                             <constraint firstItem="3nx-uA-Trr" firstAttribute="top" secondItem="W6W-2v-yGb" secondAttribute="top" constant="15" id="eTI-3U-Je3"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="W6W-2v-yGb" secondAttribute="trailing" constant="2" id="0iW-IM-Kv6"/>
-                    <constraint firstItem="W6W-2v-yGb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="E4Z-YE-mcA"/>
-                    <constraint firstItem="W6W-2v-yGb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="OZ2-sV-8wR"/>
-                    <constraint firstAttribute="bottom" secondItem="W6W-2v-yGb" secondAttribute="bottom" constant="2" id="wuQ-C3-GdW"/>
+                    <constraint firstAttribute="trailing" secondItem="W6W-2v-yGb" secondAttribute="trailing" constant="3" id="0iW-IM-Kv6"/>
+                    <constraint firstItem="W6W-2v-yGb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="E4Z-YE-mcA"/>
+                    <constraint firstItem="W6W-2v-yGb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="OZ2-sV-8wR"/>
+                    <constraint firstAttribute="bottom" secondItem="W6W-2v-yGb" secondAttribute="bottom" constant="3" id="wuQ-C3-GdW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="container" destination="W6W-2v-yGb" id="NIT-wX-Vnn"/>
                 <outlet property="storeDescription" destination="vie-AY-mKr" id="rZn-st-da3"/>
                 <outlet property="storeImage" destination="OLF-x6-TzK" id="uPZ-Hq-ztb"/>
                 <outlet property="storeTitle" destination="3nx-uA-Trr" id="cGy-fk-2HE"/>
@@ -73,6 +75,9 @@
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

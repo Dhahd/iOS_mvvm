@@ -10,11 +10,11 @@ import UIKit
 class StoresTableView<CELL : UITableViewCell,T> : NSObject, UITableViewDataSource, UITableViewDelegate {
 	
 	private var cellIdentifier : String!
-	private var items : [ShopsModelElement]!
-	var configureCell : (CELL, ShopsModelElement) -> () = {_,_ in }
+	private var items : [Item]!
+	var configureCell : (CELL, Item) -> () = {_,_ in }
 	var nibName = ""
 	
-	init(cellName: String, cellIdentifier : String, items : [ShopsModelElement], configureCell : @escaping (CELL, ShopsModelElement) -> ()) {
+	init(cellName: String, cellIdentifier : String, items : [Item], configureCell : @escaping (CELL, Item) -> ()) {
 		self.cellIdentifier = cellIdentifier
 		self.nibName = cellName
 		self.items = items

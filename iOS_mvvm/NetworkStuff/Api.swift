@@ -13,25 +13,24 @@ class Api: NSObject {
 	
 	private let af = Alamofire.AF
 	
-	func getStores(mainResponse: @escaping (ApiResponse<ShopsModel?>) -> Void){
-		makeRequest("gallery") { response in
+	func getStores(mainResponse: @escaping (ApiResponse<MainResponse?>) -> Void){
+		makeRequest("gallery?page=1&per_page=15") { response in
 			mainResponse(response)
 		}
 	}
 	
 	private func makeRequest<Model: Decodable>(_ path: String, parameter: Parameters? = nil, method: HTTPMethod = .get,encoding:ParameterEncoding = URLEncoding.default, mainResponse: @escaping (ApiResponse<Model?>) -> Void)  {
 		
-		let headers = HTTPHeaders([HTTPHeader(name: "Accept", value: "application/json")])
-		
-		
-		var params = [String: Any]()
-		
-		if let param = parameter {
-			params = param
-		}
-		
-		af.request(url(path),method: method, parameters: params,encoding: encoding, headers: headers).response { (response) in
+		af.request(url(path),method: method).response { (response) in
+			print("response \(response)")
+			let json = try! JSON(data: response.data!)
+				print("response \(json)")
 			
+			print("response error \(String(describing: response.error))")
+			print("response error \(String(describing: response.request?.url))")
+
+
+
 			mainResponse(self.parseJSON(data: response.data))
 		}
 	}
@@ -47,10 +46,11 @@ class Api: NSObject {
 		
 		if let safeData = data {
 			do {
-				let data = try newJSONDecoder().decode(Model.self, from: safeData)
+				let data = try JSONDecoder().decode(Model.self, from: safeData)
+				print("data \(data)")
 				return .success(model: data)
 			} catch {
-				
+				print("data erorr \(error)")
 				if let error = String(data: safeData, encoding: .utf8) {
 					return .failure(error)
 				}
