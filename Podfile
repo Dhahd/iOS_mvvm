@@ -8,7 +8,6 @@ target 'iOS_mvvm' do
 	pod 'SwiftyJSON'
 	pod 'Kingfisher'
 	pod 'GoogleMaps', '5.1.0'
-	pod 'GooglePlaces'
 
   # Pods for iOS_mvvm
 
