@@ -9,11 +9,21 @@ import UIKit
 import CoreData
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StoreItem {
+	func open(item: Item?) {
+		if let lat = item?.lat, let lang = item?.lang,
+		   let name = item?.name, let description = item?.itemDescription {
+			openMap(lat: lat, lang: lang, name: name, description: description)
+		}
+	}
+	
 	
 	var viewModel: StoreViewModel!
+	var localViewmodel: LocalStoreViewModel!
+	
 	@IBOutlet var tableView: UITableView!
 	
+	@IBOutlet var indecator: UIActivityIndicatorView!
 	var storesData = [MainData]()
 	
 	var stores: [Item?]!
@@ -23,13 +33,26 @@ class ViewController: UIViewController {
 	}
 	
 	let HORIZONTAL_CELL_SIZE = CGFloat(110)
+	override func viewDidAppear(_ animated: Bool) {
+		navigationController?.navigationBar.isHidden = true
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		stores = getLocalData()
-		initTableView()
+		initLocalViewModel()
 		initAndCallViewModel()
-		
+		initTableView()
+	}
+	
+	func initLocalViewModel(){
+		localViewmodel = LocalStoreViewModel()
+		stores = localViewmodel.stores
+		if let vmStore = localViewmodel.stores {
+			
+		storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
+		storesData.append((MainData(itemType: .Vertical, items: vmStore)))
+		indecator.removeFromSuperview()
+		}
 	}
 	
 	func initTableView(){
@@ -45,32 +68,44 @@ class ViewController: UIViewController {
 		self.viewModel = StoreViewModel()
 		self.viewModel.bindStoresViewModelToController = { [self] in
 			
-			if stores != viewModel.stores {
+			if viewModel.stores != stores {
 				stores = viewModel.stores
-			}
 			
-			saveDataLocally()
+			if let vmStore = viewModel.stores {
 			
-			for _ in 0...4 {
-				stores.append(contentsOf: viewModel.stores)
-			}
-			storesData.append((MainData(itemType: .Horizontal, items: stores)))
-			storesData.append((MainData(itemType: .Vertical, items: stores)))
+			storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
+			storesData.append((MainData(itemType: .Vertical, items: vmStore)))
 			DispatchQueue.main.async {
 				tableView.reloadData()
 			}
 			print("response \(String(describing: viewModel.stores))")
+				indecator.removeFromSuperview()
+				saveDataLocally(vmStore)
+			}
 		}
+		}
+		
 	}
 	
-	func saveDataLocally(){
+	func saveDataLocally(_ stores: [Item?]){
 		let jsonStores = try! JSONEncoder().encode(stores)
 		
 		if let jsonString = String(data: jsonStores, encoding: .utf8) {
-			saveData(stores: jsonString)
+			localViewmodel.saveData(stores: jsonString)
 		}
 	}
 	
+	func openMap(lat: Double, lang: Double, name: String, description: String){
+		let mainBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+		let mapViewController = mainBoard.instantiateViewController(withIdentifier: "map") as! MapsViewController
+		
+		mapViewController.lat = lat
+		mapViewController.lang = lang
+		mapViewController.markerName = name
+		mapViewController.markerDescription = description
+		//self.present(mapViewController, animated: true, completion: nil)
+		self.navigationController?.pushViewController(mapViewController, animated: true)
+	}
 	
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -93,7 +128,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		self.tableView.register(nib, forCellReuseIdentifier: "HListCell")
 		let cell = tableView.dequeueReusableCell(withIdentifier: "HListCell", for: indexPath) as! HListCell
 		cell.addStores(list: stores)
-		print("from section 1 \(cell.stores)")
+		cell.storeItem = self
 		return cell
 	}
 	
@@ -102,11 +137,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		self.tableView.register(nib, forCellReuseIdentifier: "VlistCel")
 		let cell = tableView.dequeueReusableCell(withIdentifier: "VlistCel", for: indexPath) as! VerticalListCell
 		cell.addItems(items: stores)
-		cell.layoutSubviews()
-		
-		cell.layoutIfNeeded()
-
+		cell.storeItem = self
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,7 +152,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			return VERTICAL_CELL_SIZE()
 		}
 	}
-
 }
 
 

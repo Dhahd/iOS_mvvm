@@ -10,6 +10,9 @@ import UIKit
 class HListCell: UITableViewCell {
 
 	var stores = [Item?]()
+
+	var storeItem: StoreItem!
+
 	@IBOutlet var collectionView: UICollectionView!
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +63,10 @@ extension HListCell: UICollectionViewDelegate, UICollectionViewDataSource {
 		cell.initViews(item: stores[indexPath.item])
 		print("from section collection view \(stores[indexPath.item]?.name)")
 		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		storeItem.open(item: stores[indexPath.item])
 	}
 	
 }

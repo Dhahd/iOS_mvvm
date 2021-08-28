@@ -11,6 +11,8 @@ class VerticalListCell: UITableViewCell {
 	
 	var stores: [Item?]!
 	
+	var storeItem: StoreItem!
+	
 	@IBOutlet var tableView: UITableView!
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -56,4 +58,9 @@ extension VerticalListCell: UITableViewDelegate, UITableViewDataSource {
 		100
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		storeItem.open(item: stores?[indexPath.item])
+	}
+	
 }
+

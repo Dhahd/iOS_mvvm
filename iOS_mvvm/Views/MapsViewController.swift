@@ -11,13 +11,17 @@ class MapsViewController: UIViewController {
 	
 	@IBOutlet var collectionView: UICollectionView!
 	@IBOutlet var mapContainer: UIView!
-	var stores: [Item?]!
+	var stores: [Item?]?!
 	var viewModel: StoreViewModel!
 	
 	var mapView: GMSMapView!
 	
 	var markerName: String!
 	var markerDescription: String!
+	
+	var lat: Double!
+	var lang: Double!
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -29,7 +33,13 @@ class MapsViewController: UIViewController {
 			
 		stores = getLocalData()
 		initViewModel()
-		initCollectionView()
+		
+		if let lat = lat, let lang = lang {
+			navigationController?.navigationBar.isHidden = false
+			zoomToCords(lang, lat)
+		} else {
+			initCollectionView()
+		}
 		
 	}
 	
@@ -59,7 +69,7 @@ class MapsViewController: UIViewController {
 			
 			saveDataLocally()
 			
-			let firstItem = stores.first
+			let firstItem = stores?.first
 			let lat = firstItem??.lat
 			let lang = firstItem??.lang
 			//setupMarker(index: 0)
@@ -91,7 +101,7 @@ class MapsViewController: UIViewController {
 	
 	private func setupMarker(index: Int?) {
 		if let index = index {
-			let item = stores[index]
+			let item = stores?[index]
 			markerName = item?.name
 			markerDescription = item?.itemDescription
 		}
@@ -106,19 +116,19 @@ class MapsViewController: UIViewController {
 }
 extension MapsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return stores.count
+		return stores??.count ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hStoreCell", for: indexPath) as! HItemCell
-		cell.initViews(item: stores[indexPath.item])
+		cell.initViews(item: stores?[indexPath.item])
 		return cell
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		let lat = stores[indexPath.item]?.lat
-		let lang = stores[indexPath.item]?.lang
+		let lat = stores?[indexPath.item]?.lat
+		let lang = stores?[indexPath.item]?.lang
 		
 		setupMarker(index: indexPath.item)
 		zoomToCords(lat, lang)
@@ -127,8 +137,8 @@ extension MapsViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		let indexPath = firstCellIndex()
-		let lat = stores[indexPath]?.lat
-		let lang = stores[indexPath]?.lang
+		let lat = stores?[indexPath]?.lat
+		let lang = stores?[indexPath]?.lang
 
 		setupMarker(index: indexPath)
 		zoomToCords(lat, lang)

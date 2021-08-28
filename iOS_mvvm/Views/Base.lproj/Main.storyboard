@@ -18,40 +18,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb1-WV-qLp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RG0-fa-ujz">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wb1-WV-qLp" secondAttribute="bottom" id="0AX-Mb-Jd2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wb1-WV-qLp" secondAttribute="trailing" id="0pX-yU-UWz"/>
+                            <constraint firstItem="RG0-fa-ujz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BW0-eO-JT6"/>
+                            <constraint firstItem="RG0-fa-ujz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uva-x3-LVm"/>
                             <constraint firstItem="Wb1-WV-qLp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dtb-pe-9nY"/>
-                            <constraint firstItem="Wb1-WV-qLp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hNJ-tN-fpd"/>
+                            <constraint firstItem="Wb1-WV-qLp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hNJ-tN-fpd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stores" image="cart.fill" catalog="system" id="pBi-8z-rJV"/>
+                    <navigationItem key="navigationItem" id="gOo-zO-sjy"/>
                     <connections>
+                        <outlet property="indecator" destination="RG0-fa-ujz" id="haK-pz-bvC"/>
                         <outlet property="tableView" destination="Wb1-WV-qLp" id="jTv-IN-3of"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-141" y="137"/>
+            <point key="canvasLocation" x="768.11594202898561" y="136.60714285714286"/>
         </scene>
         <!--Map-->
         <scene sceneID="ojR-He-yN8">
             <objects>
-                <viewController id="Cpt-zb-XOO" customClass="MapsViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cpt-zb-XOO" customClass="MapsViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QYh-4I-sAU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsB-AZ-TuH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-wQ-P11">
@@ -87,7 +94,7 @@
                             <constraint firstItem="zoD-Ae-fTJ" firstAttribute="trailing" secondItem="mS8-wQ-P11" secondAttribute="trailing" id="MzA-Lz-m7A"/>
                             <constraint firstItem="mS8-wQ-P11" firstAttribute="leading" secondItem="zoD-Ae-fTJ" secondAttribute="leading" id="YeO-3r-QRs"/>
                             <constraint firstItem="zoD-Ae-fTJ" firstAttribute="bottom" secondItem="mS8-wQ-P11" secondAttribute="bottom" constant="20" id="bKr-6Q-Oqi"/>
-                            <constraint firstItem="ZsB-AZ-TuH" firstAttribute="top" secondItem="zoD-Ae-fTJ" secondAttribute="top" id="bbK-4K-XLS"/>
+                            <constraint firstItem="ZsB-AZ-TuH" firstAttribute="top" secondItem="QYh-4I-sAU" secondAttribute="top" id="bbK-4K-XLS"/>
                             <constraint firstItem="ZsB-AZ-TuH" firstAttribute="trailing" secondItem="mS8-wQ-P11" secondAttribute="trailing" id="i2y-FX-4xW"/>
                         </constraints>
                     </view>
@@ -99,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qoq-Nf-iFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="137"/>
+            <point key="canvasLocation" x="2668.1159420289855" y="136.60714285714286"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P2r-kJ-DZh">
@@ -111,13 +118,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="We9-lA-G4C"/>
+                        <segue destination="6Pg-rz-Nqp" kind="relationship" relationship="viewControllers" id="We9-lA-G4C"/>
                         <segue destination="Cpt-zb-XOO" kind="relationship" relationship="viewControllers" id="80l-HA-21P"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgH-KS-1cW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="137"/>
+            <point key="canvasLocation" x="1718.840579710145" y="136.60714285714286"/>
+        </scene>
+        <!--Stores-->
+        <scene sceneID="AUI-SJ-Afe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Pg-rz-Nqp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Stores" image="cart.fill" catalog="system" id="pBi-8z-rJV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X4H-KC-LD1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OLC-G0-fd9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSQ-FN-Ych" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-142.02898550724638" y="136.60714285714286"/>
         </scene>
     </scenes>
     <resources>
