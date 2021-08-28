@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A5DDE8F26CB17B500F9152C /* StoresTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */; };
 		0A696A1426CAFB6000A52457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1326CAFB6000A52457 /* AppDelegate.swift */; };
 		0A696A1626CAFB6000A52457 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1526CAFB6000A52457 /* SceneDelegate.swift */; };
 		0A696A1826CAFB6000A52457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A1726CAFB6000A52457 /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresTableview.swift; sourceTree = "<group>"; };
 		0A696A1026CAFB6000A52457 /* iOS_mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_mvvm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A696A1326CAFB6000A52457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A696A1526CAFB6000A52457 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,12 +109,10 @@
 				0A696A2B26CB006E00A52457 /* NetworkStuff */,
 				0A696A1326CAFB6000A52457 /* AppDelegate.swift */,
 				0A696A1526CAFB6000A52457 /* SceneDelegate.swift */,
-				0A696A1926CAFB6000A52457 /* Main.storyboard */,
 				0A696A1F26CAFB6100A52457 /* Assets.xcassets */,
 				0A696A2126CAFB6100A52457 /* LaunchScreen.storyboard */,
 				0A696A2426CAFB6100A52457 /* Info.plist */,
 				0A696A1C26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld */,
-				0A5DDE8E26CB17B400F9152C /* StoresTableview.swift */,
 			);
 			path = iOS_mvvm;
 			sourceTree = "<group>";
@@ -176,6 +172,7 @@
 		0AA63A3E26CC3444007A644B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A696A1926CAFB6000A52457 /* Main.storyboard */,
 				0A696A1726CAFB6000A52457 /* ViewController.swift */,
 				0A9F6B9F26DA34DD005B30ED /* MapsViewController.swift */,
 			);
@@ -340,7 +337,6 @@
 				0A696A1E26CAFB6000A52457 /* iOS_mvvm.xcdatamodeld in Sources */,
 				0A696A1426CAFB6000A52457 /* AppDelegate.swift in Sources */,
 				0AA63A4926CC35C7007A644B /* HItemCell.swift in Sources */,
-				0A5DDE8F26CB17B500F9152C /* StoresTableview.swift in Sources */,
 				0AD9008126DA83380008CE5F /* SnappingCollectionViewLayout.swift in Sources */,
 				0A9F6B9D26D962B2005B30ED /* MainResponse.swift in Sources */,
 				0A696A2D26CB007C00A52457 /* Api.swift in Sources */,
