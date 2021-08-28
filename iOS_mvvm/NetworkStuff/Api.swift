@@ -14,21 +14,13 @@ class Api: NSObject {
 	private let af = Alamofire.AF
 	
 	func getStores(mainResponse: @escaping (ApiResponse<MainResponse?>) -> Void){
-		makeRequest("gallery?page=1&per_page=15") { response in
+		makeRequest("gallery") { response in
 			mainResponse(response)
 		}
 	}
 	
 	private func makeRequest<Model: Decodable>(_ path: String, parameter: Parameters? = nil, method: HTTPMethod = .get,encoding:ParameterEncoding = URLEncoding.default, mainResponse: @escaping (ApiResponse<Model?>) -> Void)  {
-		
 		af.request(url(path),method: method).response { (response) in
-			print("response \(response)")
-			
-			print("response error \(String(describing: response.error))")
-			print("response error \(String(describing: response.request?.url))")
-
-
-
 			mainResponse(self.parseJSON(data: response.data))
 		}
 	}

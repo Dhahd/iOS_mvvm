@@ -15,7 +15,6 @@ class LocalStoreViewModel: NSObject {
 	private lazy var context = {
 		return self.app.persistentContainer.viewContext
 	}
-	var bindStoresViewModelToController : (() -> ()) = {}
 	
 	var stores : [Item?]!
 	
@@ -23,10 +22,6 @@ class LocalStoreViewModel: NSObject {
 	override init() {
 		super.init()
 		stores = getLocalData()
-	}
-	
-	func getStores(){
-		
 	}
 	
 	func saveData(stores: String?)
@@ -59,8 +54,6 @@ class LocalStoreViewModel: NSObject {
 		do {
 			let result = try context().fetch(request)
 			let data = (result.first as? NSManagedObject)?.value(forKey: "stores") as? String
-			print("saved stores data \(data)")
-			
 			return data
 			
 		} catch {
@@ -99,10 +92,8 @@ class LocalStoreViewModel: NSObject {
 		if let safeData = data {
 			do {
 				let data = try JSONDecoder().decode([Item].self, from: safeData)
-				print("data \(data)")
 				return data
 			} catch {
-				print("data erorr \(error)")
 				if let error = String(data: safeData, encoding: .utf8) {
 					print(error)
 				}

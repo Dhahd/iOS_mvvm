@@ -33,6 +33,7 @@
 		0AD9008126DA83380008CE5F /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9008026DA83380008CE5F /* SnappingCollectionViewLayout.swift */; };
 		0AD9008326DAA1360008CE5F /* LocalStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9008226DAA1360008CE5F /* LocalStoreViewModel.swift */; };
 		0AFD9E5626DAE90C008504A3 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E5526DAE90C008504A3 /* Protocols.swift */; };
+		0AFD9E5826DB020D008504A3 /* SingleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E5726DB020D008504A3 /* SingleMapViewController.swift */; };
 		2A8B0F062627D0845C5E976B /* Pods_iOS_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		0AD9008026DA83380008CE5F /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		0AD9008226DAA1360008CE5F /* LocalStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoreViewModel.swift; sourceTree = "<group>"; };
 		0AFD9E5526DAE90C008504A3 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		0AFD9E5726DB020D008504A3 /* SingleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMapViewController.swift; sourceTree = "<group>"; };
 		85EB142CBC742FAF98AB547C /* Pods-iOS_mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.debug.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAA9FB79D2D2370E6A1692B /* Pods-iOS_mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.release.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				0A696A1926CAFB6000A52457 /* Main.storyboard */,
 				0A696A1726CAFB6000A52457 /* ViewController.swift */,
 				0A9F6B9F26DA34DD005B30ED /* MapsViewController.swift */,
+				0AFD9E5726DB020D008504A3 /* SingleMapViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				0AA63A4926CC35C7007A644B /* HItemCell.swift in Sources */,
 				0AD9008126DA83380008CE5F /* SnappingCollectionViewLayout.swift in Sources */,
 				0A9F6B9D26D962B2005B30ED /* MainResponse.swift in Sources */,
+				0AFD9E5826DB020D008504A3 /* SingleMapViewController.swift in Sources */,
 				0A696A2D26CB007C00A52457 /* Api.swift in Sources */,
 				0AA39CAD26D95F6C0008F50A /* VerticalListCell.swift in Sources */,
 				0AFD9E5626DAE90C008504A3 /* Protocols.swift in Sources */,

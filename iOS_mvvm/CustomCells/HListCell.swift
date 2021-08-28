@@ -25,7 +25,6 @@ class HListCell: UITableViewCell {
 	}
 	
 	func addStores(list: [Item?]?) {
-		print("got the list")
 		if let list = list {
 			initCollectionView()
 			let nib = UINib(nibName: "HStoresCell", bundle: nil)
@@ -45,8 +44,6 @@ class HListCell: UITableViewCell {
 	
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -61,7 +58,6 @@ extension HListCell: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hStoreCell", for: indexPath) as! HItemCell
 		cell.initViews(item: stores[indexPath.item])
-		print("from section collection view \(stores[indexPath.item]?.name)")
 		return cell
 	}
 	

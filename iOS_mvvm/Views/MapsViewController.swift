@@ -13,15 +13,12 @@ class MapsViewController: UIViewController {
 	@IBOutlet var mapContainer: UIView!
 	var stores: [Item?]?!
 	var viewModel: StoreViewModel!
+	var localViewModel: LocalStoreViewModel!
 	
 	var mapView: GMSMapView!
 	
 	var markerName: String!
 	var markerDescription: String!
-	
-	var lat: Double!
-	var lang: Double!
-	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,15 +28,9 @@ class MapsViewController: UIViewController {
 		mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
 		mapContainer.addSubview(mapView)
 			
-		stores = getLocalData()
+		initLocalViewModel()
 		initViewModel()
-		
-		if let lat = lat, let lang = lang {
-			navigationController?.navigationBar.isHidden = false
-			zoomToCords(lang, lat)
-		} else {
-			initCollectionView()
-		}
+		initCollectionView()
 		
 	}
 	
@@ -65,17 +56,29 @@ class MapsViewController: UIViewController {
 			
 			if stores != viewModel.stores {
 				stores = viewModel.stores
+				saveDataLocally()
 			}
-			
-			saveDataLocally()
 			
 			let firstItem = stores?.first
 			let lat = firstItem??.lat
 			let lang = firstItem??.lang
-			//setupMarker(index: 0)
+			setupMarker(index: 0)
 			
 			DispatchQueue.main.async {
-				
+				zoomToCords(lat, lang)
+				collectionView.reloadData()
+				mapContainer.bringSubviewToFront(collectionView)
+			}
+			
+		}
+	}
+	
+	func initLocalViewModel(){
+		localViewModel = LocalStoreViewModel()
+		if let stores = localViewModel.stores {
+			self.stores = stores
+			setupMarker(index: 0)
+			DispatchQueue.main.async { [self] in
 				zoomToCords(lat, lang)
 				collectionView.reloadData()
 				mapContainer.bringSubviewToFront(collectionView)
@@ -86,14 +89,14 @@ class MapsViewController: UIViewController {
 	
 	func zoomToCords(_ lang: Double?,_ lat: Double?) {
 		if let lat = lat, let lang = lang {
-			
+			let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lang)
 			mapView.clear()
 			let marker = GMSMarker()
-			marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lang)
+			marker.position = coordinates
 			marker.title = markerName
 			marker.snippet = markerDescription
 			marker.map = mapView
-			mapView.animate(toLocation: CLLocationCoordinate2D(latitude: lat, longitude: lang))
+			mapView.animate(toLocation: coordinates)
 			mapView.animate(toZoom: 16)
 			
 		}
@@ -110,7 +113,7 @@ class MapsViewController: UIViewController {
 		let jsonStores = try! JSONEncoder().encode(stores)
 		
 		if let jsonString = String(data: jsonStores, encoding: .utf8) {
-			saveData(stores: jsonString)
+			localViewModel.saveData(stores: jsonString)
 		}
 	}
 }

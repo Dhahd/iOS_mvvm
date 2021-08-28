@@ -60,6 +60,7 @@ extension VerticalListCell: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		storeItem.open(item: stores?[indexPath.item])
+		print("store name \(stores?[indexPath.item]?.name)")
 	}
 	
 }

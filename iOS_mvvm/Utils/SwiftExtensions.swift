@@ -15,8 +15,6 @@ extension UIImageView {
 		loader.indicator?.startAnimatingView()
 		
 		if let url = url {
-			print("img url \(url)")
-			
 			loader.setImage(with: URL(string: url))
 			loader.indicator?.stopAnimatingView()
 		}

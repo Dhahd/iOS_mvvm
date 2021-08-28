@@ -49,9 +49,9 @@ class ViewController: UIViewController, StoreItem {
 		stores = localViewmodel.stores
 		if let vmStore = localViewmodel.stores {
 			
-		storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
-		storesData.append((MainData(itemType: .Vertical, items: vmStore)))
-		indecator.removeFromSuperview()
+			storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
+			storesData.append((MainData(itemType: .Vertical, items: vmStore)))
+			indecator.removeFromSuperview()
 		}
 	}
 	
@@ -70,19 +70,18 @@ class ViewController: UIViewController, StoreItem {
 			
 			if viewModel.stores != stores {
 				stores = viewModel.stores
-			
-			if let vmStore = viewModel.stores {
-			
-			storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
-			storesData.append((MainData(itemType: .Vertical, items: vmStore)))
-			DispatchQueue.main.async {
-				tableView.reloadData()
+				
+				if let vmStore = viewModel.stores {
+					
+					storesData.append((MainData(itemType: .Horizontal, items: vmStore)))
+					storesData.append((MainData(itemType: .Vertical, items: vmStore)))
+					DispatchQueue.main.async {
+						tableView.reloadData()
+					}
+					indecator.removeFromSuperview()
+					saveDataLocally(vmStore)
+				}
 			}
-			print("response \(String(describing: viewModel.stores))")
-				indecator.removeFromSuperview()
-				saveDataLocally(vmStore)
-			}
-		}
 		}
 		
 	}
@@ -97,7 +96,7 @@ class ViewController: UIViewController, StoreItem {
 	
 	func openMap(lat: Double, lang: Double, name: String, description: String){
 		let mainBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-		let mapViewController = mainBoard.instantiateViewController(withIdentifier: "map") as! MapsViewController
+		let mapViewController = mainBoard.instantiateViewController(withIdentifier: "singleMap") as! SingleMapViewController
 		
 		mapViewController.lat = lat
 		mapViewController.lang = lang
