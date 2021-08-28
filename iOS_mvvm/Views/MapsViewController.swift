@@ -7,11 +7,11 @@
 
 import UIKit
 import GoogleMaps
-class MapsViewController: UIViewController, GMSMapViewDelegate {
+class MapsViewController: UIViewController {
 	
 	@IBOutlet var collectionView: UICollectionView!
 	@IBOutlet var mapContainer: UIView!
-	var stores = [Item?]()
+	var stores: [Item?]!
 	var viewModel: StoreViewModel!
 	
 	var mapView: GMSMapView!
@@ -21,11 +21,13 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		print("maps")
+		
+		// Zoom at Baghdad.
 		let camera = GMSCameraPosition.camera(withLatitude: 33.325552, longitude:  44.41779, zoom: 14)
 		mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
 		mapContainer.addSubview(mapView)
-				
+			
+		stores = getLocalData()
 		initViewModel()
 		initCollectionView()
 		
@@ -50,18 +52,23 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 	func initViewModel(){
 		viewModel = StoreViewModel()
 		viewModel.bindStoresViewModelToController = { [self] in
-			stores = viewModel.stores
+			
+			if stores != viewModel.stores {
+				stores = viewModel.stores
+			}
+			
 			let firstItem = stores.first
 			let lat = firstItem??.lat
 			let lang = firstItem??.lang
-			setupMarker(index: 0)
-			print("Stores \(stores)")
+			//setupMarker(index: 0)
+			
 			DispatchQueue.main.async {
 				
 				zoomToCords(lat, lang)
 				collectionView.reloadData()
 				mapContainer.bringSubviewToFront(collectionView)
 			}
+			
 		}
 	}
 	
@@ -80,10 +87,12 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 		}
 	}
 	
-	private func setupMarker(index: Int) {
-		let item = stores[index]
-		markerName = item?.name
-		markerDescription = item?.itemDescription
+	private func setupMarker(index: Int?) {
+		if let index = index {
+			let item = stores[index]
+			markerName = item?.name
+			markerDescription = item?.itemDescription
+		}
 	}
 }
 extension MapsViewController: UICollectionViewDelegate, UICollectionViewDataSource {

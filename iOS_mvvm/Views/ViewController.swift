@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+import SwiftyJSON
 
 class ViewController: UIViewController {
 	
@@ -24,9 +26,10 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		stores = getLocalData()
+		initTableView()
 		initAndCallViewModel()
-		tableView.rowHeight = UITableView.automaticDimension
-		tableView.estimatedRowHeight = 300
+		
 	}
 	
 	func initTableView(){
@@ -34,7 +37,6 @@ class ViewController: UIViewController {
 			tableView.dataSource = self
 			tableView.delegate = self
 			tableView.reloadData()
-			
 		}
 		
 	}
@@ -42,16 +44,28 @@ class ViewController: UIViewController {
 	func initAndCallViewModel(){
 		self.viewModel = StoreViewModel()
 		self.viewModel.bindStoresViewModelToController = { [self] in
-			stores = viewModel.stores
-			for i in 0...4 {
+			
+			if stores != viewModel.stores {
+				stores = viewModel.stores
+			}
+			
+			let jsonStores = try! JSONEncoder().encode(stores)
+			
+			if let jsonString = String(data: jsonStores, encoding: .utf8) {
+				saveData(stores: jsonString)
+			}
+			for _ in 0...4 {
 				stores.append(contentsOf: viewModel.stores)
 			}
 			storesData.append((MainData(itemType: .Horizontal, items: stores)))
 			storesData.append((MainData(itemType: .Vertical, items: stores)))
-			initTableView()
+			DispatchQueue.main.async {
+				tableView.reloadData()
+			}
 			print("response \(String(describing: viewModel.stores))")
 		}
 	}
+	
 	
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

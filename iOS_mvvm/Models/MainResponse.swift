@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CoreData
 // MARK: - MainResponse
 struct MainResponse: Codable {
 	let count: Int
@@ -14,9 +14,9 @@ struct MainResponse: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Codable, Equatable {
 	let id, createdAt: String
-	let updatedAt, deletedAt: JSONNull?
+	let updatedAt, deletedAt: String?
 	let isDeleted: Bool
 	let name, itemDescription: String
 	let lang, lat: Double
@@ -34,30 +34,35 @@ struct Item: Codable {
 		case imageURL = "image_url"
 	}
 }
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-	
-	public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-		return true
-	}
-	
-	public var hashValue: Int {
-		return 0
-	}
-	
-	public init() {}
-	
-	public required init(from decoder: Decoder) throws {
-		let container = try decoder.singleValueContainer()
-		if !container.decodeNil() {
-			throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-		}
-	}
-	
-	public func encode(to encoder: Encoder) throws {
-		var container = encoder.singleValueContainer()
-		try container.encodeNil()
-	}
-}
+//
+//@objc(Stores)
+//public class Stores: NSManagedObject {
+//
+//	@NSManaged var id, createdAt: String
+//	@NSManaged var updatedAt, deletedAt: String?
+//	@NSManaged var isItemDeleted: Bool
+//	@NSManaged var name, itemDescription: String
+//	@NSManaged var lang, lat: Double
+//	@NSManaged var imageURL: String
+//
+//
+//
+//	var allAtributes : Item {
+//		get {
+//			return Item(id: self.id, createdAt: self.createdAt, updatedAt: self.updatedAt, deletedAt: self.deletedAt, isDeleted: self.isItemDeleted, name: self.name, itemDescription: self.itemDescription, lang: self.lang, lat: self.lat, imageURL: self.imageURL)
+//		}
+//		set {
+//			self.id = newValue.id
+//			self.createdAt = newValue.createdAt
+//			self.updatedAt = newValue.updatedAt
+//			self.deletedAt = newValue.deletedAt
+//			self.isItemDeleted = newValue.isDeleted
+//			self.name = newValue.name
+//			self.itemDescription = newValue.itemDescription
+//			self.lang = newValue.lang
+//			self.lat = newValue.lat
+//			self.imageURL = newValue.imageURL
+//		}
+//	}
+//
+//}

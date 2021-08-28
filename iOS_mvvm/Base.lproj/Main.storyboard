@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Stores-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stores" id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,32 +33,16 @@
                             <constraint firstItem="Wb1-WV-qLp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hNJ-tN-fpd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="pBi-8z-rJV"/>
+                    <tabBarItem key="tabBarItem" title="Stores" image="cart.fill" catalog="system" id="pBi-8z-rJV"/>
                     <connections>
                         <outlet property="tableView" destination="Wb1-WV-qLp" id="jTv-IN-3of"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="136"/>
+            <point key="canvasLocation" x="-141" y="137"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="ROp-fh-Rsl">
-            <objects>
-                <viewController id="5rt-nm-jV1" customClass="MapsViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RrS-VR-bry">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="v1C-7a-FS9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Qup-fZ-vDa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q5V-QW-WES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1765" y="440"/>
-        </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="ojR-He-yN8">
             <objects>
                 <viewController id="Cpt-zb-XOO" customClass="MapsViewController" customModule="iOS_mvvm" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,19 +52,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsB-AZ-TuH">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W40-sG-vff">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
-                                        <color key="backgroundColor" red="0.60966926809999999" green="0.15393936629999999" blue="0.1372249126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="W40-sG-vff" secondAttribute="bottom" id="Glq-Fk-aRf"/>
-                                    <constraint firstAttribute="trailing" secondItem="W40-sG-vff" secondAttribute="trailing" id="QqZ-Xg-eEc"/>
-                                    <constraint firstItem="W40-sG-vff" firstAttribute="leading" secondItem="ZsB-AZ-TuH" secondAttribute="leading" id="ejf-zg-x9V"/>
-                                    <constraint firstItem="W40-sG-vff" firstAttribute="top" secondItem="ZsB-AZ-TuH" secondAttribute="top" id="fdk-Ax-Cad"/>
-                                </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-wQ-P11">
                                 <rect key="frame" x="0.0" y="665" width="414" height="128"/>
@@ -119,7 +91,7 @@
                             <constraint firstItem="ZsB-AZ-TuH" firstAttribute="trailing" secondItem="mS8-wQ-P11" secondAttribute="trailing" id="i2y-FX-4xW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="uNo-4U-k2j"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="uNo-4U-k2j"/>
                     <connections>
                         <outlet property="collectionView" destination="mS8-wQ-P11" id="dPg-nM-Px0"/>
                         <outlet property="mapContainer" destination="QYh-4I-sAU" id="dcb-gK-yzn"/>
@@ -139,19 +111,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Cpt-zb-XOO" kind="relationship" relationship="viewControllers" id="HUO-RP-3DO"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="We9-lA-G4C"/>
+                        <segue destination="Cpt-zb-XOO" kind="relationship" relationship="viewControllers" id="80l-HA-21P"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgH-KS-1cW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875" y="137"/>
+            <point key="canvasLocation" x="812" y="115"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
