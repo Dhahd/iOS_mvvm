@@ -79,7 +79,7 @@ class MapsViewController: UIViewController {
 			self.stores = stores
 			setupMarker(index: 0)
 			DispatchQueue.main.async { [self] in
-				zoomToCords(lat, lang)
+				zoomToCords(stores.first??.lat, stores.first??.lang)
 				collectionView.reloadData()
 				mapContainer.bringSubviewToFront(collectionView)
 			}
