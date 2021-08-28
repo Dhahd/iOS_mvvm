@@ -57,6 +57,8 @@ class MapsViewController: UIViewController {
 				stores = viewModel.stores
 			}
 			
+			saveDataLocally()
+			
 			let firstItem = stores.first
 			let lat = firstItem??.lat
 			let lang = firstItem??.lang
@@ -92,6 +94,13 @@ class MapsViewController: UIViewController {
 			let item = stores[index]
 			markerName = item?.name
 			markerDescription = item?.itemDescription
+		}
+	}
+	func saveDataLocally(){
+		let jsonStores = try! JSONEncoder().encode(stores)
+		
+		if let jsonString = String(data: jsonStores, encoding: .utf8) {
+			saveData(stores: jsonString)
 		}
 	}
 }

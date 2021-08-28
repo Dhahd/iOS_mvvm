@@ -49,11 +49,8 @@ class ViewController: UIViewController {
 				stores = viewModel.stores
 			}
 			
-			let jsonStores = try! JSONEncoder().encode(stores)
+			saveDataLocally()
 			
-			if let jsonString = String(data: jsonStores, encoding: .utf8) {
-				saveData(stores: jsonString)
-			}
 			for _ in 0...4 {
 				stores.append(contentsOf: viewModel.stores)
 			}
@@ -63,6 +60,14 @@ class ViewController: UIViewController {
 				tableView.reloadData()
 			}
 			print("response \(String(describing: viewModel.stores))")
+		}
+	}
+	
+	func saveDataLocally(){
+		let jsonStores = try! JSONEncoder().encode(stores)
+		
+		if let jsonString = String(data: jsonStores, encoding: .utf8) {
+			saveData(stores: jsonString)
 		}
 	}
 	
