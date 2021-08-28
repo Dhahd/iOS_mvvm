@@ -16,26 +16,24 @@ class ViewController: UIViewController {
 	
 	var stores: [Item?]!
 	
-	lazy var HEIGHT = { [self] in
-		return CGFloat(stores.count > 4 ? 1.0 : 1.2)
-	}
-	
 	lazy var VERTICAL_CELL_SIZE = {
-		return self.view.bounds.size.height * CGFloat(self.HEIGHT())
+		return self.view.bounds.size.height * 0.8
 	}
 	
-	let HORIZONTAL_CELL_SIZE = CGFloat(120)
+	let HORIZONTAL_CELL_SIZE = CGFloat(110)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		initAndCallViewModel()
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = 300
 	}
 	
 	func initTableView(){
-		DispatchQueue.main.async {
-			self.tableView.dataSource = self
-			self.tableView.delegate = self
-			self.tableView.reloadData()
+		DispatchQueue.main.async { [self] in
+			tableView.dataSource = self
+			tableView.delegate = self
+			tableView.reloadData()
 			
 		}
 		
@@ -44,17 +42,20 @@ class ViewController: UIViewController {
 	func initAndCallViewModel(){
 		self.viewModel = StoreViewModel()
 		self.viewModel.bindStoresViewModelToController = { [self] in
-			self.stores = self.viewModel.stores
-			stores.append(contentsOf: viewModel.stores)
+			stores = viewModel.stores
+			for i in 0...4 {
+				stores.append(contentsOf: viewModel.stores)
+			}
 			storesData.append((MainData(itemType: .Horizontal, items: stores)))
 			storesData.append((MainData(itemType: .Vertical, items: stores)))
-			self.initTableView()
-			print("response \(String(describing: self.viewModel.stores))")
+			initTableView()
+			print("response \(String(describing: viewModel.stores))")
 		}
 	}
 	
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		storesData.count
@@ -82,6 +83,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		self.tableView.register(nib, forCellReuseIdentifier: "VlistCel")
 		let cell = tableView.dequeueReusableCell(withIdentifier: "VlistCel", for: indexPath) as! VerticalListCell
 		cell.addItems(items: stores)
+		cell.layoutSubviews()
+		
+		cell.layoutIfNeeded()
+
 		return cell
 	}
 	
@@ -92,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			return VERTICAL_CELL_SIZE()
 		}
 	}
-	
+
 }
 
 

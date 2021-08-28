@@ -23,8 +23,6 @@ class Api: NSObject {
 		
 		af.request(url(path),method: method).response { (response) in
 			print("response \(response)")
-			let json = try! JSON(data: response.data!)
-				print("response \(json)")
 			
 			print("response error \(String(describing: response.error))")
 			print("response error \(String(describing: response.request?.url))")

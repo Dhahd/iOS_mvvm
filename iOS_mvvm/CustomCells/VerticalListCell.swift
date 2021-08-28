@@ -27,6 +27,8 @@ class VerticalListCell: UITableViewCell {
 		if let items = items {
 			tableView.delegate = self
 			tableView.dataSource = self
+			tableView.rowHeight = UITableView.automaticDimension
+			tableView.estimatedRowHeight = 300
 			stores = items
 			tableView.reloadData()
 		}

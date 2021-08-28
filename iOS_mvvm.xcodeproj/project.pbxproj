@@ -23,6 +23,7 @@
 		0A696A3A26CB149600A52457 /* VItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A696A3826CB149600A52457 /* VItemCell.xib */; };
 		0A696A3D26CB161700A52457 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A696A3C26CB161700A52457 /* SwiftExtensions.swift */; };
 		0A9F6B9D26D962B2005B30ED /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F6B9C26D962B2005B30ED /* MainResponse.swift */; };
+		0A9F6BA026DA34DD005B30ED /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F6B9F26DA34DD005B30ED /* MapsViewController.swift */; };
 		0AA39CA726D94F7F0008F50A /* VerticalStoresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA39CA526D94F7F0008F50A /* VerticalStoresCell.swift */; };
 		0AA39CA826D94F7F0008F50A /* VerticalStoresCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA39CA626D94F7F0008F50A /* VerticalStoresCell.xib */; };
 		0AA39CAA26D954900008F50A /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA39CA926D954900008F50A /* MainData.swift */; };
@@ -32,6 +33,7 @@
 		0AA63A4626CC34C1007A644B /* HListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA63A4426CC34C1007A644B /* HListCell.xib */; };
 		0AA63A4926CC35C7007A644B /* HItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA63A4726CC35C7007A644B /* HItemCell.swift */; };
 		0AA63A4A26CC35C7007A644B /* HStoresCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA63A4826CC35C7007A644B /* HStoresCell.xib */; };
+		0AD9008126DA83380008CE5F /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9008026DA83380008CE5F /* SnappingCollectionViewLayout.swift */; };
 		2A8B0F062627D0845C5E976B /* Pods_iOS_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,7 @@
 		0A696A3826CB149600A52457 /* VItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VItemCell.xib; sourceTree = "<group>"; };
 		0A696A3C26CB161700A52457 /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		0A9F6B9C26D962B2005B30ED /* MainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
+		0A9F6B9F26DA34DD005B30ED /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		0AA39CA526D94F7F0008F50A /* VerticalStoresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStoresCell.swift; sourceTree = "<group>"; };
 		0AA39CA626D94F7F0008F50A /* VerticalStoresCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalStoresCell.xib; sourceTree = "<group>"; };
 		0AA39CA926D954900008F50A /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		0AA63A4426CC34C1007A644B /* HListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HListCell.xib; sourceTree = "<group>"; };
 		0AA63A4726CC35C7007A644B /* HItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HItemCell.swift; sourceTree = "<group>"; };
 		0AA63A4826CC35C7007A644B /* HStoresCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HStoresCell.xib; sourceTree = "<group>"; };
+		0AD9008026DA83380008CE5F /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		85EB142CBC742FAF98AB547C /* Pods-iOS_mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.debug.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		CE7543B6B115F62D3AE738D7 /* Pods_iOS_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAA9FB79D2D2370E6A1692B /* Pods-iOS_mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_mvvm.release.xcconfig"; path = "Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +113,6 @@
 				0A696A2B26CB006E00A52457 /* NetworkStuff */,
 				0A696A1326CAFB6000A52457 /* AppDelegate.swift */,
 				0A696A1526CAFB6000A52457 /* SceneDelegate.swift */,
-				0A696A1726CAFB6000A52457 /* ViewController.swift */,
 				0A696A1926CAFB6000A52457 /* Main.storyboard */,
 				0A696A1F26CAFB6100A52457 /* Assets.xcassets */,
 				0A696A2126CAFB6100A52457 /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0A696A3C26CB161700A52457 /* SwiftExtensions.swift */,
+				0AD9008026DA83380008CE5F /* SnappingCollectionViewLayout.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -175,6 +179,8 @@
 		0AA63A3E26CC3444007A644B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A696A1726CAFB6000A52457 /* ViewController.swift */,
+				0A9F6B9F26DA34DD005B30ED /* MapsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				0A696A0D26CAFB6000A52457 /* Frameworks */,
 				0A696A0E26CAFB6000A52457 /* Resources */,
 				1691416D7781ECAC7468C720 /* [CP] Embed Pods Frameworks */,
+				CC156F91C75846050B38832A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,6 +315,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CC156F91C75846050B38832A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_mvvm/Pods-iOS_mvvm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -320,10 +344,12 @@
 				0A696A1426CAFB6000A52457 /* AppDelegate.swift in Sources */,
 				0AA63A4926CC35C7007A644B /* HItemCell.swift in Sources */,
 				0A5DDE8F26CB17B500F9152C /* StoresTableview.swift in Sources */,
+				0AD9008126DA83380008CE5F /* SnappingCollectionViewLayout.swift in Sources */,
 				0A9F6B9D26D962B2005B30ED /* MainResponse.swift in Sources */,
 				0AA39CA726D94F7F0008F50A /* VerticalStoresCell.swift in Sources */,
 				0A696A2D26CB007C00A52457 /* Api.swift in Sources */,
 				0AA39CAD26D95F6C0008F50A /* VerticalListCell.swift in Sources */,
+				0A9F6BA026DA34DD005B30ED /* MapsViewController.swift in Sources */,
 				0A696A3526CB0A1800A52457 /* StoresViewModel.swift in Sources */,
 				0AA63A4526CC34C1007A644B /* HListCell.swift in Sources */,
 				0A696A2F26CB00B800A52457 /* ApiResponse.swift in Sources */,
